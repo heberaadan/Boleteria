@@ -63,10 +63,29 @@ namespace Boletos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gato {
+            get {
+                object obj = ResourceManager.GetObject("gato", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap goyopan {
             get {
                 object obj = ResourceManager.GetObject("goyopan", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a .
+        /// </summary>
+        internal static string usuarios {
+            get {
+                return ResourceManager.GetString("usuarios", resourceCulture);
             }
         }
     }

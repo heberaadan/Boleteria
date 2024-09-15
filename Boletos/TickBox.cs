@@ -7,11 +7,6 @@ namespace Boletos
             InitializeComponent();
         }
 
-        private void sing_in_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void TickBox_Load(object sender, EventArgs e)
         {
             sing_in.Enabled = false; // Deshabilita el botón de inicio 
@@ -27,9 +22,10 @@ namespace Boletos
             }
             else
             {
+                sing_in.Enabled = false;
                 if (!username.Text.All(char.IsLetter))
                 {
-                    errorProvider1.SetError(username, "El nombre sólo debe contener letras");
+                    errorProvider1.SetError(username, "El username sólo debe contener letras");
                 }
             }
         }
@@ -42,6 +38,25 @@ namespace Boletos
         private void pass_TextChanged(object sender, EventArgs e)
         {
             controlBottom();
+        }
+
+        private void sing_up_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sing_up_Click_1(object sender, EventArgs e)
+        {
+            using (new_user Window_NewUser = new new_user())
+            {
+                Window_NewUser.ShowDialog();
+                this.Close();
+            }
+        }
+
+        private void tickBox_close_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
