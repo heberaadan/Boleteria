@@ -106,6 +106,7 @@
             sing_in.TabIndex = 6;
             sing_in.Text = "Ingresar";
             sing_in.UseVisualStyleBackColor = false;
+            sing_in.Click += sing_in_Click;
             // 
             // label4
             // 
@@ -127,7 +128,7 @@
             sing_up.TabIndex = 8;
             sing_up.Text = "Crear nueva cuenta";
             sing_up.UseVisualStyleBackColor = false;
-            sing_up.Click += sing_up_Click_1;
+            sing_up.Click += sing_up_Click;
             // 
             // errorProvider1
             // 

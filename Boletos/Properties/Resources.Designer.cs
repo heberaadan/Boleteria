@@ -79,14 +79,5 @@ namespace Boletos.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a .
-        /// </summary>
-        internal static string usuarios {
-            get {
-                return ResourceManager.GetString("usuarios", resourceCulture);
-            }
-        }
     }
 }
