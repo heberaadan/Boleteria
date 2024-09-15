@@ -14,10 +14,12 @@ namespace Boletos
 {
     public partial class new_user : Form
     {
+        private TickBox from;
         string usuario, contraseña, nombre, celular, correo;
         string patronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
         public new_user()
         {
+            from = new TickBox();
             InitializeComponent();
         }
 
@@ -27,6 +29,7 @@ namespace Boletos
             if (email_TextChanged != null && Regex.IsMatch(email.Text, patronCorreo))
             {
                 correo = email.Text;
+                from.emails.Add(correo);
                 errorProvider1.SetError(email, "");
             }
             else
@@ -39,12 +42,21 @@ namespace Boletos
         {
             if (new_username.Text.All(char.IsLetter))
             {
-                usuario = new_username.Text;
-                errorProvider1.SetError(new_username, "");
+                if (!from.users.Contains(new_username.Text))
+                {
+                    usuario = new_username.Text;
+                    from.users.Add(usuario);
+                    errorProvider1.SetError(new_username, "");
+                }
+                else
+                {
+                    errorProvider1.SetError(new_username, "Usuario ya existente");
+                }
+                
             }
             else
             {
-                errorProvider1.SetError(new_username, "No se aceptan carácteres especiales (Solo texto)");
+                errorProvider1.SetError(new_username, "No se aceptan carácteres especiales, ni números (Solo texto)");
             }
         }
 
@@ -54,6 +66,7 @@ namespace Boletos
             if (name2.All(char.IsLetter))
             {
                 nombre = name.Text;
+                from.names.Add(nombre);
                 errorProvider1.SetError(name, "");
             }
             else
@@ -79,6 +92,7 @@ namespace Boletos
                 if (password.Text.Equals(password_2.Text)) // Compara ambas contraseñas para ver que esten correctas
                 {
                     contraseña = password_2.Text;
+                    from.contras.Add(contraseña);
                     errorProvider1.SetError(password_2, "");
                 }
                 else
@@ -90,19 +104,15 @@ namespace Boletos
 
         private void phone_TextChanged(object sender, EventArgs e)
         {
-            if (phone.Text.All(char.IsNumber))
+            if (phone.Text.All(char.IsNumber) && phone.Text.Length == 10)
             {
                 celular = phone.Text;
+                from.phones.Add(celular);
                 errorProvider1.SetError(phone, "");
             }
             else
             {
                 errorProvider1.SetError(phone, "Número telefónico no válido");
-            }
-
-            if (phone.Text.Length > 10) // Verifica que el número no sea mas largo de 10 carácteres
-            {
-                errorProvider1.SetError(phone, "Número muy largo");
             }
         }
         private bool FullDatos()
@@ -127,10 +137,17 @@ namespace Boletos
             if (FullDatos())
             {
                 using (StreamWriter users = new StreamWriter("usuarios.txt", true))
-                {
-                    users.WriteLine(usuario + "|" + contraseña + "|" + correo + "|" + celular);
+                {   // Guarda los datos en el archivo usuarios.txt
+                    users.WriteLine(usuario + "|" + contraseña + "|" + correo + "|" + nombre +"|" + celular);
                 }
                 MessageBox.Show("Datos registrados con exito !!!  :)", "Datos Registrados");
+
+                this.Close();
+
+                using(TickBox back = new TickBox())
+                {
+                    back.ShowDialog();
+                } 
             }
             else
             {
@@ -154,6 +171,10 @@ namespace Boletos
                 {
                     errorProvider1.SetError(password_2, "Llenar el campo vacío ");
                 }
+                if (phone.Text == String.Empty)
+                {
+                    errorProvider1.SetError(phone, "Llenar el campo vacío ");
+                }
             }
         }
 
@@ -167,7 +188,6 @@ namespace Boletos
             using (TickBox Window_NewUser = new TickBox())
             {
                 Window_NewUser.ShowDialog();
-                this.Close();
             }
         }
     }
