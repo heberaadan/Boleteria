@@ -35,11 +35,11 @@
             label2 = new Label();
             label3 = new Label();
             username = new TextBox();
-            pass = new TextBox();
             sing_in = new Button();
             label4 = new Label();
             sing_up = new Button();
             errorProvider1 = new ErrorProvider(components);
+            pass = new TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
@@ -93,16 +93,7 @@
             username.Name = "username";
             username.Size = new Size(265, 23);
             username.TabIndex = 4;
-            // 
-            // pass
-            // 
-            pass.Font = new Font("BankGothic Lt BT", 9.75F, FontStyle.Italic, GraphicsUnit.Point, 0);
-            pass.ImeMode = ImeMode.NoControl;
-            pass.Location = new Point(41, 202);
-            pass.Name = "pass";
-            pass.PasswordChar = '*';
-            pass.Size = new Size(265, 21);
-            pass.TabIndex = 5;
+            username.TextChanged += username_TextChanged;
             // 
             // sing_in
             // 
@@ -141,16 +132,25 @@
             // 
             errorProvider1.ContainerControl = this;
             // 
+            // pass
+            // 
+            pass.Font = new Font("Bahnschrift SemiLight SemiConde", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            pass.Location = new Point(41, 202);
+            pass.Name = "pass";
+            pass.Size = new Size(265, 23);
+            pass.TabIndex = 9;
+            pass.TextChanged += pass_TextChanged;
+            // 
             // TickBox
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(250, 252, 211);
             ClientSize = new Size(804, 461);
+            Controls.Add(pass);
             Controls.Add(sing_up);
             Controls.Add(label4);
             Controls.Add(sing_in);
-            Controls.Add(pass);
             Controls.Add(username);
             Controls.Add(label3);
             Controls.Add(label2);
@@ -176,10 +176,10 @@
         private Label label2;
         private Label label3;
         private TextBox username;
-        private TextBox pass;
         private Button sing_in;
         private Label label4;
         private Button sing_up;
         private ErrorProvider errorProvider1;
+        private TextBox pass;
     }
 }
