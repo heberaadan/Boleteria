@@ -63,6 +63,16 @@ namespace Boletos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bmth {
+            get {
+                object obj = ResourceManager.GetObject("bmth", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bodoque {
             get {
                 object obj = ResourceManager.GetObject("bodoque", resourceCulture);
@@ -91,12 +101,14 @@ namespace Boletos.Properties {
         }
         
         /// <summary>
-        ///   Busca un recurso adaptado de tipo System.Byte[].
+        ///   Busca una cadena traducida similar a Survival Horror Tour|Bring Me The Horizon,Black Veil Brides,Motionless In White,Ice Nine Kills|Palacio de los Deportes, Ciudad de México|Octubre 26
+        ///M72 World Tour|Metallica-Greta Van Fleet,Mammoth WVH-Five Finger Death Punch,Ice Nine Kills|Foro Sol, Ciudad de México|Septiembre 20 y 27 (Greta Van Fleet, Mammoth WVH)-Septiembre 22 y 29 (Five Finger Death Punch, Ice Nine Kills)
+        ///Born Pink World Tour Mexico|BLACKPINK|Foro Sol, Ciudad de México|Abril 26-Abril 27
+        ///Saturno World Tour|Raw Aejandro|Foro Sol|Octubre [resto de la cadena truncado]&quot;;.
         /// </summary>
-        internal static byte[] metallica {
+        internal static string info_conciertos {
             get {
-                object obj = ResourceManager.GetObject("metallica", resourceCulture);
-                return ((byte[])(obj));
+                return ResourceManager.GetString("info_conciertos", resourceCulture);
             }
         }
     }

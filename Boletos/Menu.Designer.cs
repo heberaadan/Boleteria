@@ -28,38 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             saludo = new Label();
             panel1 = new Panel();
-            button1 = new Button();
-            button2 = new Button();
+            salir_menu = new Button();
             pictureBox1 = new PictureBox();
+            button2 = new Button();
+            button1 = new Button();
             panel2 = new Panel();
+            slide_picture = new PictureBox();
+            siguiente = new Button();
+            anterior = new Button();
             label1 = new Label();
-            button3 = new Button();
-            button4 = new Button();
-            pictureBox2 = new PictureBox();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)slide_picture).BeginInit();
             SuspendLayout();
             // 
             // saludo
             // 
             saludo.AutoSize = true;
             saludo.BorderStyle = BorderStyle.Fixed3D;
-            saludo.Font = new Font("Broadway", 30F);
+            saludo.Font = new Font("Broadway", 25F);
             saludo.ForeColor = SystemColors.ButtonFace;
             saludo.Location = new Point(12, 9);
             saludo.Name = "saludo";
-            saludo.Size = new Size(311, 48);
+            saludo.Size = new Size(268, 40);
             saludo.TabIndex = 0;
             saludo.Text = "BIENVENIDO, ";
             // 
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(90, 199, 170);
+            panel1.Controls.Add(salir_menu);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(button2);
             panel1.Controls.Add(button1);
@@ -68,15 +72,26 @@
             panel1.Size = new Size(311, 371);
             panel1.TabIndex = 1;
             // 
-            // button1
+            // salir_menu
             // 
-            button1.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button1.Location = new Point(24, 21);
-            button1.Name = "button1";
-            button1.Size = new Size(262, 23);
-            button1.TabIndex = 0;
-            button1.Text = "Editar perfil";
-            button1.UseVisualStyleBackColor = true;
+            salir_menu.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            salir_menu.Location = new Point(24, 324);
+            salir_menu.Name = "salir_menu";
+            salir_menu.Size = new Size(114, 23);
+            salir_menu.TabIndex = 6;
+            salir_menu.Text = "Salir";
+            salir_menu.UseVisualStyleBackColor = true;
+            salir_menu.Click += salir_menu_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = Properties.Resources.bodoque;
+            pictureBox1.Location = new Point(45, 101);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(224, 196);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 2;
+            pictureBox1.TabStop = false;
             // 
             // button2
             // 
@@ -88,27 +103,60 @@
             button2.Text = "Consultar Compras";
             button2.UseVisualStyleBackColor = true;
             // 
-            // pictureBox1
+            // button1
             // 
-            pictureBox1.Image = Properties.Resources.bodoque;
-            pictureBox1.Location = new Point(24, 127);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(262, 220);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 2;
-            pictureBox1.TabStop = false;
+            button1.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button1.Location = new Point(24, 21);
+            button1.Name = "button1";
+            button1.Size = new Size(262, 23);
+            button1.TabIndex = 0;
+            button1.Text = "Editar perfil";
+            button1.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
             panel2.BackColor = Color.FromArgb(90, 199, 170);
-            panel2.Controls.Add(pictureBox2);
-            panel2.Controls.Add(button4);
-            panel2.Controls.Add(button3);
+            panel2.Controls.Add(slide_picture);
+            panel2.Controls.Add(siguiente);
+            panel2.Controls.Add(anterior);
             panel2.Controls.Add(label1);
             panel2.Location = new Point(349, 78);
             panel2.Name = "panel2";
             panel2.Size = new Size(443, 371);
             panel2.TabIndex = 2;
+            // 
+            // slide_picture
+            // 
+            slide_picture.Image = (Image)resources.GetObject("slide_picture.Image");
+            slide_picture.Location = new Point(31, 86);
+            slide_picture.Name = "slide_picture";
+            slide_picture.Size = new Size(393, 211);
+            slide_picture.SizeMode = PictureBoxSizeMode.Zoom;
+            slide_picture.TabIndex = 5;
+            slide_picture.TabStop = false;
+            slide_picture.Click += slide_picture_Click;
+            // 
+            // siguiente
+            // 
+            siguiente.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            siguiente.Location = new Point(299, 324);
+            siguiente.Name = "siguiente";
+            siguiente.Size = new Size(114, 23);
+            siguiente.TabIndex = 4;
+            siguiente.Text = "Siguiente";
+            siguiente.UseVisualStyleBackColor = true;
+            siguiente.Click += button4_Click;
+            // 
+            // anterior
+            // 
+            anterior.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            anterior.Location = new Point(17, 324);
+            anterior.Name = "anterior";
+            anterior.Size = new Size(114, 23);
+            anterior.TabIndex = 3;
+            anterior.Text = "Anterior";
+            anterior.UseVisualStyleBackColor = true;
+            anterior.Click += button3_Click;
             // 
             // label1
             // 
@@ -116,39 +164,17 @@
             label1.BorderStyle = BorderStyle.Fixed3D;
             label1.Font = new Font("Broadway", 30F);
             label1.ForeColor = SystemColors.ButtonFace;
-            label1.Location = new Point(115, 21);
+            label1.Location = new Point(114, 21);
             label1.Name = "label1";
             label1.Size = new Size(241, 48);
             label1.TabIndex = 3;
             label1.Text = "COMPRAR";
             // 
-            // button3
+            // timer1
             // 
-            button3.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button3.Location = new Point(17, 324);
-            button3.Name = "button3";
-            button3.Size = new Size(114, 23);
-            button3.TabIndex = 3;
-            button3.Text = "Anterior";
-            button3.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            button4.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button4.Location = new Point(299, 324);
-            button4.Name = "button4";
-            button4.Size = new Size(114, 23);
-            button4.TabIndex = 4;
-            button4.Text = "Siguiente";
-            button4.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Location = new Point(73, 87);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(317, 211);
-            pictureBox2.TabIndex = 5;
-            pictureBox2.TabStop = false;
+            timer1.Enabled = true;
+            timer1.Interval = 5000;
+            timer1.Tick += timer1_Tick;
             // 
             // Menu
             // 
@@ -160,14 +186,16 @@
             Controls.Add(panel1);
             Controls.Add(saludo);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             Name = "Menu";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Menu";
-            Load += this.Menu_Load;
+            Load += Menu_Load;
             panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)slide_picture).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -180,9 +208,11 @@
         private Button button2;
         private Button button1;
         private Panel panel2;
-        private PictureBox pictureBox2;
-        private Button button4;
-        private Button button3;
+        private Button siguiente;
+        private Button anterior;
         private Label label1;
+        private Button salir_menu;
+        private System.Windows.Forms.Timer timer1;
+        private PictureBox slide_picture;
     }
 }
