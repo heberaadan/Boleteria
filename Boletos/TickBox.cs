@@ -88,7 +88,6 @@ namespace Boletos
             if (users.Contains(username.Text) && contras.Contains(pass.Text))
             {
                 id =  users.IndexOf(username.Text);
-                MessageBox.Show("El ID es: " + id, "ID");
                 using (Menu menu = new Menu(id))
                 {
                     menu.ShowDialog();
