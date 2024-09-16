@@ -63,6 +63,16 @@ namespace Boletos.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap bodoque {
+            get {
+                object obj = ResourceManager.GetObject("bodoque", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gato {
             get {
                 object obj = ResourceManager.GetObject("gato", resourceCulture);
@@ -77,6 +87,16 @@ namespace Boletos.Properties {
             get {
                 object obj = ResourceManager.GetObject("goyopan", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Byte[].
+        /// </summary>
+        internal static byte[] metallica {
+            get {
+                object obj = ResourceManager.GetObject("metallica", resourceCulture);
+                return ((byte[])(obj));
             }
         }
     }
