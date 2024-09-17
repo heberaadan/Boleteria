@@ -34,7 +34,7 @@
             panel1 = new Panel();
             salir_menu = new Button();
             pictureBox1 = new PictureBox();
-            button2 = new Button();
+            historial_compras = new Button();
             button1 = new Button();
             panel2 = new Panel();
             slide_picture = new PictureBox();
@@ -65,7 +65,7 @@
             panel1.BackColor = Color.FromArgb(90, 199, 170);
             panel1.Controls.Add(salir_menu);
             panel1.Controls.Add(pictureBox1);
-            panel1.Controls.Add(button2);
+            panel1.Controls.Add(historial_compras);
             panel1.Controls.Add(button1);
             panel1.Location = new Point(12, 78);
             panel1.Name = "panel1";
@@ -93,15 +93,16 @@
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
-            // button2
+            // historial_compras
             // 
-            button2.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(24, 63);
-            button2.Name = "button2";
-            button2.Size = new Size(262, 23);
-            button2.TabIndex = 1;
-            button2.Text = "Consultar Compras";
-            button2.UseVisualStyleBackColor = true;
+            historial_compras.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            historial_compras.Location = new Point(24, 63);
+            historial_compras.Name = "historial_compras";
+            historial_compras.Size = new Size(262, 23);
+            historial_compras.TabIndex = 1;
+            historial_compras.Text = "Consultar Compras";
+            historial_compras.UseVisualStyleBackColor = true;
+            historial_compras.Click += historial_compras_Click;
             // 
             // button1
             // 
@@ -205,7 +206,7 @@
         private Label saludo;
         private Panel panel1;
         private PictureBox pictureBox1;
-        private Button button2;
+        private Button historial_compras;
         private Button button1;
         private Panel panel2;
         private Button siguiente;
