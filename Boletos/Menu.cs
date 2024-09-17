@@ -97,8 +97,8 @@ namespace Boletos
                 id_image = id_image.Substring(inicio + 1, fin - inicio - 1);
                 img = int.Parse(id_image);
 
-                conciertos[img-1].numBoletos = Boletos(conciertos[img - 1].tour);
-                
+                conciertos[img - 1].numBoletos = Boletos(conciertos[img - 1].tour);
+
                 MessageBox.Show("Gracias por comprar un boleto para: " + conciertos[img - 1].tour, "Compra exitosa", MessageBoxButtons.OK);
 
                 conciertos[img - 1].numBoletos++;
@@ -138,7 +138,7 @@ namespace Boletos
         }
         private int Boletos(string name_tour)
         {
-            if(File.Exists(tickBox.users[id_user] + "_ticket.txt"))
+            if (File.Exists(tickBox.users[id_user] + "_ticket.txt"))
             {
                 foreach (string linea in File.ReadLines(tickBox.users[id_user] + "_ticket.txt"))
                 {
@@ -169,7 +169,15 @@ namespace Boletos
             {
                 MessageBox.Show("Error: Aún no ha hecho ninguna compra", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            using (Edit edit = new Edit(id_user))
+            {
+                edit.ShowDialog();
+            }
         }
     }
 }

@@ -42,6 +42,7 @@
             anterior = new Button();
             label1 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -63,6 +64,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(90, 199, 170);
+            panel1.Controls.Add(button2);
             panel1.Controls.Add(salir_menu);
             panel1.Controls.Add(pictureBox1);
             panel1.Controls.Add(historial_compras);
@@ -86,9 +88,9 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources.bodoque;
-            pictureBox1.Location = new Point(45, 101);
+            pictureBox1.Location = new Point(44, 130);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(224, 196);
+            pictureBox1.Size = new Size(224, 188);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
@@ -113,6 +115,7 @@
             button1.TabIndex = 0;
             button1.Text = "Editar perfil";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // panel2
             // 
@@ -177,6 +180,16 @@
             timer1.Interval = 5000;
             timer1.Tick += timer1_Tick;
             // 
+            // button2
+            // 
+            button2.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Location = new Point(24, 101);
+            button2.Name = "button2";
+            button2.Size = new Size(262, 23);
+            button2.TabIndex = 7;
+            button2.Text = "Editar Compras";
+            button2.UseVisualStyleBackColor = true;
+            // 
             // Menu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -215,5 +228,6 @@
         private Button salir_menu;
         private System.Windows.Forms.Timer timer1;
         private PictureBox slide_picture;
+        private Button button2;
     }
 }

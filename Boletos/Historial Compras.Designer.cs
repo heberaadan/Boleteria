@@ -49,7 +49,5 @@
         }
 
         #endregion
-
-        private Panel panel2;
     }
 }
