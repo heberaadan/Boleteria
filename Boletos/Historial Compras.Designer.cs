@@ -36,9 +36,9 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
-            BackColor = Color.FromArgb(78, 88, 97);
+            BackColor = Color.FromArgb(57, 46, 14);
             ClientSize = new Size(804, 461);
-            ForeColor = SystemColors.ControlDark;
+            ForeColor = SystemColors.Control;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "History";

@@ -15,8 +15,8 @@ namespace Boletos
     public partial class new_user : Form
     {
         private TickBox from;
-        string usuario, contraseña, nombre, celular, correo;
-        string patronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+        private string usuario, contraseña, nombre, celular, correo;
+        public string patronCorreo = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
         public new_user()
         {
             from = new TickBox();
@@ -26,7 +26,7 @@ namespace Boletos
 
         private void email_TextChanged(object sender, EventArgs e)
         {
-            if (email_TextChanged != null && Regex.IsMatch(email.Text, patronCorreo))
+            if (email_TextChanged != null && Regex.IsMatch(email.Text, patronCorreo)) // Verifica que tenga el formato de un correo eléctronico 
             {
                 correo = email.Text;
                 from.emails.Add(correo);
@@ -52,7 +52,6 @@ namespace Boletos
                 {
                     errorProvider1.SetError(new_username, "Usuario ya existente");
                 }
-                
             }
             else
             {
@@ -87,7 +86,7 @@ namespace Boletos
 
         private void VerificarContra()
         {
-            if (password_2.Text != string.Empty)
+            if (password_2.Text != string.Empty & password.Text != string.Empty)
             {
                 if (password.Text.Equals(password_2.Text)) // Compara ambas contraseñas para ver que esten correctas
                 {

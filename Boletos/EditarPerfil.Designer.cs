@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Edit));
             label1 = new Label();
             phone = new TextBox();
@@ -47,10 +48,12 @@
             Edit_user = new Button();
             Edit_name = new Button();
             Edit_pass = new Button();
-            Edit_pass2 = new Button();
             Edit_phone = new Button();
             pictureBox1 = new PictureBox();
+            save = new Button();
+            errorProvider1 = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -70,6 +73,7 @@
             phone.Name = "phone";
             phone.Size = new Size(233, 23);
             phone.TabIndex = 27;
+            phone.TextChanged += phone_TextChanged;
             // 
             // password_2
             // 
@@ -78,6 +82,7 @@
             password_2.Size = new Size(233, 23);
             password_2.TabIndex = 26;
             password_2.UseSystemPasswordChar = true;
+            password_2.TextChanged += password_2_TextChanged;
             // 
             // password
             // 
@@ -86,6 +91,7 @@
             password.Size = new Size(233, 23);
             password.TabIndex = 25;
             password.UseSystemPasswordChar = true;
+            password.TextChanged += password_TextChanged;
             // 
             // name
             // 
@@ -93,6 +99,7 @@
             name.Name = "name";
             name.Size = new Size(233, 23);
             name.TabIndex = 24;
+            name.TextChanged += name_TextChanged;
             // 
             // new_username
             // 
@@ -100,6 +107,7 @@
             new_username.Name = "new_username";
             new_username.Size = new Size(233, 23);
             new_username.TabIndex = 23;
+            new_username.TextChanged += new_username_TextChanged;
             // 
             // email
             // 
@@ -107,6 +115,7 @@
             email.Name = "email";
             email.Size = new Size(233, 23);
             email.TabIndex = 22;
+            email.TextChanged += email_TextChanged;
             // 
             // label7
             // 
@@ -210,6 +219,7 @@
             Edit_email.TabIndex = 29;
             Edit_email.Text = "Cambiar";
             Edit_email.UseVisualStyleBackColor = false;
+            Edit_email.Click += Edit_email_Click;
             // 
             // Edit_user
             // 
@@ -222,6 +232,7 @@
             Edit_user.TabIndex = 30;
             Edit_user.Text = "Cambiar";
             Edit_user.UseVisualStyleBackColor = false;
+            Edit_user.Click += Edit_user_Click;
             // 
             // Edit_name
             // 
@@ -234,6 +245,7 @@
             Edit_name.TabIndex = 31;
             Edit_name.Text = "Cambiar";
             Edit_name.UseVisualStyleBackColor = false;
+            Edit_name.Click += Edit_name_Click;
             // 
             // Edit_pass
             // 
@@ -246,18 +258,7 @@
             Edit_pass.TabIndex = 32;
             Edit_pass.Text = "Cambiar";
             Edit_pass.UseVisualStyleBackColor = false;
-            // 
-            // Edit_pass2
-            // 
-            Edit_pass2.BackColor = Color.FromArgb(245, 227, 174);
-            Edit_pass2.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Edit_pass2.ForeColor = Color.FromArgb(78, 88, 91);
-            Edit_pass2.Location = new Point(261, 315);
-            Edit_pass2.Name = "Edit_pass2";
-            Edit_pass2.Size = new Size(75, 23);
-            Edit_pass2.TabIndex = 33;
-            Edit_pass2.Text = "Cambiar";
-            Edit_pass2.UseVisualStyleBackColor = false;
+            Edit_pass.Click += Edit_pass_Click;
             // 
             // Edit_phone
             // 
@@ -270,6 +271,7 @@
             Edit_phone.TabIndex = 34;
             Edit_phone.Text = "Cambiar";
             Edit_phone.UseVisualStyleBackColor = false;
+            Edit_phone.Click += Edit_phone_Click;
             // 
             // pictureBox1
             // 
@@ -281,15 +283,32 @@
             pictureBox1.TabIndex = 35;
             pictureBox1.TabStop = false;
             // 
+            // save
+            // 
+            save.BackColor = Color.FromArgb(245, 227, 174);
+            save.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            save.ForeColor = Color.FromArgb(78, 88, 91);
+            save.Location = new Point(180, 415);
+            save.Name = "save";
+            save.Size = new Size(75, 23);
+            save.TabIndex = 36;
+            save.Text = "Guardar";
+            save.UseVisualStyleBackColor = false;
+            save.Click += save_Click;
+            // 
+            // errorProvider1
+            // 
+            errorProvider1.ContainerControl = this;
+            // 
             // Edit
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(245, 227, 174);
             ClientSize = new Size(804, 461);
+            Controls.Add(save);
             Controls.Add(pictureBox1);
             Controls.Add(Edit_phone);
-            Controls.Add(Edit_pass2);
             Controls.Add(Edit_pass);
             Controls.Add(Edit_name);
             Controls.Add(Edit_user);
@@ -315,6 +334,7 @@
             Text = "Editar Perfil";
             Load += Edit_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)errorProvider1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -339,8 +359,9 @@
         private Button Edit_user;
         private Button Edit_name;
         private Button Edit_pass;
-        private Button Edit_pass2;
         private Button Edit_phone;
         private PictureBox pictureBox1;
+        private Button save;
+        private ErrorProvider errorProvider1;
     }
 }

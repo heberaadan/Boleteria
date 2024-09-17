@@ -16,13 +16,14 @@ namespace Boletos
             names = new List<string>();
             phones = new List<string>();
             emails = new List<string>();
+
             InitializeComponent();
 
             try
             {
                 foreach (string linea in File.ReadLines("usuarios.txt")) //Lee el archivo línea por línea
                 {
-                    datos = linea.Split('|');
+                    datos = linea.Trim().Split('|');
                     users.Add(datos[0]);
                     contras.Add(datos[1]);
                     emails.Add(datos[2]);
@@ -39,6 +40,8 @@ namespace Boletos
 
         private void TickBox_Load(object sender, EventArgs e)
         {
+            username.Text = "";
+            pass.Text = "";
             sing_in.Enabled = false; // Deshabilita el botón de inicio 
         }
 
