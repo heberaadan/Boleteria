@@ -24,7 +24,6 @@ namespace Boletos
             artist = info[1];
             site = info[2];
             date = info[3];
-            numBoletos++;
         }
     }
 }

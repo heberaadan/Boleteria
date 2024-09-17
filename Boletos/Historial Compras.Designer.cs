@@ -1,6 +1,6 @@
 ﻿namespace Boletos
 {
-    partial class Form1
+    partial class History
     {
         /// <summary>
         /// Required designer variable.
@@ -28,24 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(History));
             SuspendLayout();
             // 
-            // Form1
+            // History
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
             BackColor = Color.FromArgb(78, 88, 97);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(804, 461);
             ForeColor = SystemColors.ControlDark;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Form1";
+            MaximizeBox = false;
+            Name = "History";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Historial Compras";
+            Load += Form1_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Panel panel2;
     }
 }
