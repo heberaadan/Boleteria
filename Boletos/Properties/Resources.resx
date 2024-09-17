@@ -124,16 +124,19 @@
   <data name="bodoque" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\bodoque.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="manga" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\manga.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="bmth" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\bmth.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="goyopan" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\goyopan.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="gato" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\gato.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bmth" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\bmth.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="manga" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\manga.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="nie" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\nie.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

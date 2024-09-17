@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Boletos
 {
-    internal class Concierto
+    public class Concierto
     {
         public string tour;
         public string artist;

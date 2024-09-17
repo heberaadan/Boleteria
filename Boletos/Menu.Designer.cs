@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
             saludo = new Label();
             panel1 = new Panel();
+            button2 = new Button();
             salir_menu = new Button();
             pictureBox1 = new PictureBox();
             historial_compras = new Button();
@@ -42,7 +43,6 @@
             anterior = new Button();
             label1 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            button2 = new Button();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
@@ -73,6 +73,16 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(311, 371);
             panel1.TabIndex = 1;
+            // 
+            // button2
+            // 
+            button2.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            button2.Location = new Point(24, 101);
+            button2.Name = "button2";
+            button2.Size = new Size(262, 23);
+            button2.TabIndex = 7;
+            button2.Text = "Editar Compras";
+            button2.UseVisualStyleBackColor = true;
             // 
             // salir_menu
             // 
@@ -177,18 +187,8 @@
             // timer1
             // 
             timer1.Enabled = true;
-            timer1.Interval = 5000;
+            timer1.Interval = 2000;
             timer1.Tick += timer1_Tick;
-            // 
-            // button2
-            // 
-            button2.Font = new Font("Broadway", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            button2.Location = new Point(24, 101);
-            button2.Name = "button2";
-            button2.Size = new Size(262, 23);
-            button2.TabIndex = 7;
-            button2.Text = "Editar Compras";
-            button2.UseVisualStyleBackColor = true;
             // 
             // Menu
             // 

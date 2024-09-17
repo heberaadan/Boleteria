@@ -46,38 +46,42 @@ namespace Boletos
             for (int j = 0; j < compras.Count(); j++)
             {
                 panel.Add(new Panel());
-                panel[j].Location = new Point(posX, posY + (150 * j));
-                panel[j].Size = new Size(760, 120);
-                panel[j].BackColor = Color.FromArgb(177, 204, 196);
+                panel[j].Location = new Point(posX, posY + (170 * j));
+                panel[j].Size = new Size(760, 150);
+                panel[j].BackColor = Color.FromArgb(137, 118, 50);
 
                 datos = compras[j].Split('|');
 
-                for (int i = 0; i < datos.Length - 1; i++)
+                for (int i = 0; i < datos.Length - 2; i++)
                 {
                     label.Add(new Label());
-                    if(i != 4)
+                    if(i == 4)
                     {
-                        label[i_label].Text = datos[i];
+                        label[i_label].Text = "Boleto(s) Comprado(s): " + datos[i];
+                    }
+                    else if(i == 5)
+                    {
+                        label[i_label].Text = "Fecha de Compra: " + datos[i];
                     }
                     else
                     {
-                        label[i_label].Text = "Boleto(s) Comprado(s): "+datos[i];
+                        label[i_label].Text = datos[i];
                     }
                     label[i_label].Location = new Point(20,10+(20*i));
                     label[i_label].Font = new Font("Broadway", 7);
-                    label[i_label].ForeColor = Color.FromArgb(255, 255, 255);
+                    label[i_label].ForeColor = Color.FromArgb(255, 245, 214);
                     label[i_label].AutoSize = true;
 
                     i_label++;
                 }
 
                 pictureBox.Add(new PictureBox());
-                pictureBox[j].Location = new Point(630, 8);  // Colocamos la imagen a la derecha de las etiquetas
-                pictureBox[j].Size = new Size(80, 80);      // Tamaño de la imagen
+                pictureBox[j].Location = new Point(630, 20);  // Colocamos la imagen a la derecha de las etiquetas
+                pictureBox[j].Size = new Size(100, 100);      // Tamaño de la imagen
                 pictureBox[j].SizeMode = PictureBoxSizeMode.StretchImage;
                 pictureBox[j].Image = Image.FromFile(@"Images\" + datos[datos.Length-1] +".jpg");  // Ruta de la imagen
 
-                for (int i = i_label - datos.Length + 1; i < i_label; i++)
+                for (int i = i_label - datos.Length + 2; i < i_label; i++)
                 {
                     panel[j].Controls.Add(label[i]);
                 }

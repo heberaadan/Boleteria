@@ -16,7 +16,7 @@ namespace Boletos
         private TickBox tickBox;
         private int ImageNumber = 1;
         private string[] lineas;
-        private List<Concierto> conciertos;
+        public List<Concierto> conciertos;
         private int inicio, fin, img;
         public Menu(int id)
         {
@@ -87,6 +87,8 @@ namespace Boletos
         }
         private void slide_picture_Click(object sender, EventArgs e)
         {
+            DateTime fecha = DateTime.Now;
+            DateTime fecha_cadu;
             string id_image = slide_picture.ImageLocation;
 
             if (id_image != null) // Extrae el indice de la imagen del boleto que se quiere comprar
@@ -95,64 +97,20 @@ namespace Boletos
                 fin = id_image.IndexOf('.');
 
                 id_image = id_image.Substring(inicio + 1, fin - inicio - 1);
+                
                 img = int.Parse(id_image);
 
-                conciertos[img - 1].numBoletos = Boletos(conciertos[img - 1].tour);
+                using (NumBoletos num = new NumBoletos(img-1, conciertos))
+                {
+                    num.ShowDialog();
+                }
 
-                MessageBox.Show("Gracias por comprar un boleto para: " + conciertos[img - 1].tour, "Compra exitosa", MessageBoxButtons.OK);
+                fecha_cadu = fecha.AddMinutes(2);
 
-                conciertos[img - 1].numBoletos++;
-
-                if (conciertos[img - 1].numBoletos < 2)
+                using (StreamWriter ticket = new StreamWriter(tickBox.users[id_user] + "_ticket.txt", true))
                 {
-                    using (StreamWriter ticket = new StreamWriter(tickBox.users[id_user] + "_ticket.txt", true))
-                    {
-                        ticket.WriteLine(conciertos[img - 1].tour + "|" + conciertos[img - 1].artist + "|" + conciertos[img - 1].site + "|" + conciertos[img - 1].date.Trim() + "|" + conciertos[img - 1].numBoletos + "|" + img);
-                    }
+                    ticket.WriteLine(conciertos[img - 1].tour + "|" + conciertos[img - 1].artist + "|" + conciertos[img - 1].site + "|" + conciertos[img - 1].date.Trim() + "|" + conciertos[img - 1].numBoletos + "|" + fecha + "|"+ fecha_cadu + "|" + img);
                 }
-                else
-                {
-                    ActualizarTicket(img);
-                }
-            }
-        }
-        private void ActualizarTicket(int img)
-        {
-            List<string> strings = new List<string>();
-            foreach (string linea in File.ReadLines(tickBox.users[id_user] + "_ticket.txt"))
-            {
-                lineas = linea.Split('|');
-                if (lineas[0] != conciertos[img - 1].tour)
-                {
-                    strings.Add(linea.Trim());
-                }
-            }
-            using (StreamWriter ticket = new StreamWriter(tickBox.users[id_user] + "_ticket.txt"))
-            {
-                ticket.WriteLine(conciertos[img - 1].tour + "|" + conciertos[img - 1].artist + "|" + conciertos[img - 1].site + "|" + conciertos[img - 1].date.Trim() + "|" + conciertos[img - 1].numBoletos + "|" + img);
-                for (int i = 0; i < strings.Count(); i++)
-                {
-                    ticket.WriteLine(strings[i]);
-                }
-            }
-        }
-        private int Boletos(string name_tour)
-        {
-            if (File.Exists(tickBox.users[id_user] + "_ticket.txt"))
-            {
-                foreach (string linea in File.ReadLines(tickBox.users[id_user] + "_ticket.txt"))
-                {
-                    lineas = linea.Split("|");
-                    if (lineas[0] == name_tour)
-                    {
-                        return int.Parse(lineas[4]);
-                    }
-                }
-                return 0;
-            }
-            else
-            {
-                return 0;
             }
         }
 
