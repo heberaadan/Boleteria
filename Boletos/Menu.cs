@@ -97,19 +97,22 @@ namespace Boletos
                 fin = id_image.IndexOf('.');
 
                 id_image = id_image.Substring(inicio + 1, fin - inicio - 1);
-                
+
                 img = int.Parse(id_image);
 
-                using (NumBoletos num = new NumBoletos(img-1, conciertos))
+                using (NumBoletos num = new NumBoletos(img - 1, conciertos))
                 {
                     num.ShowDialog();
                 }
 
-                fecha_cadu = fecha.AddMinutes(2);
-
-                using (StreamWriter ticket = new StreamWriter(tickBox.users[id_user] + "_ticket.txt", true))
+                if (conciertos[img-1].numBoletos > 0)
                 {
-                    ticket.WriteLine(conciertos[img - 1].tour + "|" + conciertos[img - 1].artist + "|" + conciertos[img - 1].site + "|" + conciertos[img - 1].date.Trim() + "|" + conciertos[img - 1].numBoletos + "|" + fecha + "|"+ fecha_cadu + "|" + img);
+                    fecha_cadu = fecha.AddMinutes(2);
+
+                    using (StreamWriter ticket = new StreamWriter(tickBox.users[id_user] + "_ticket.txt", true))
+                    {
+                        ticket.WriteLine(conciertos[img - 1].tour + "|" + conciertos[img - 1].artist + "|" + conciertos[img - 1].site + "|" + conciertos[img - 1].date.Trim() + "|" + conciertos[img - 1].numBoletos + "|" + fecha + "|" + fecha_cadu + "|" + img);
+                    }
                 }
             }
         }
@@ -136,6 +139,11 @@ namespace Boletos
             {
                 edit.ShowDialog();
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (Edit_C edit = new Edit_C(id_user, conciertos)) { edit.ShowDialog(); }
         }
     }
 }
