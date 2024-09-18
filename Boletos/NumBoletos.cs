@@ -21,33 +21,36 @@ namespace Boletos
             img = id;
             InitializeComponent();
         }
-
-        private void num_TextChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
             if (num.Text != string.Empty & num.Text.All(char.IsNumber))
             {
                 if (int.Parse(num.Text) > 0)
                 {
                     conciertos[img].numBoletos = int.Parse(num.Text);
+                    MessageBox.Show("Compra hecha con exito!!! \n" +
+                        "\t -Concierto: " + conciertos[img].tour +
+                        "\n \t - Número de Boletos: " + conciertos[img].numBoletos, "Compra exitosa", MessageBoxButtons.OK);
                 }
                 else
                 {
                     MessageBox.Show("Error: Número de boletos invalido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Compra hecha con exito!!! \n"+
-                    "\t -Concierto: " + conciertos[img].tour +
-                    "\n \t - Número de Boletos: " + conciertos[img].numBoletos, "Compra exitosa", MessageBoxButtons.OK);
-
+            else
+            {
+                MessageBox.Show("Error: Número de boletos invalido", "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             this.Close();
         }
         public int Num_Boletos()
         {
             return conciertos[img].numBoletos;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
